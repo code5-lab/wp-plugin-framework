@@ -1,0 +1,12 @@
+{
+  "name": "componto/wp-framework",
+  "authors": [
+    {
+      "name": "Componto",
+      "email": "tech@componto.com"
+    }
+  ],
+  "require": {
+    "illuminate/database": "^5.4"
+  }
+}
