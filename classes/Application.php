@@ -1,17 +1,32 @@
 <?php
 namespace Com\Componto\Framework;
-use Illuminate\Database\Capsule\Manager as Capsule;
 
+use Com\Componto\Framework\Core\Hooks\Enqueue;
+use Com\Componto\Framework\Core\Hooks\Panel;
+use Com\Componto\Framework\Core\Hooks\ShortCode;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 
 class Application
 {
     protected static $instance;
+    protected $hooks;
 
     public function __construct()
     {
-        global $wpdb;
+        $this->hooks = [
+            'short_code' => new ShortCode(),
+            'enqueue' => new Enqueue(),
+            'panel' => new Panel(),
+            //'short_codes'
+        ];
         static::$instance = $this;
+        $this->bootEloquent();
+    }
+
+    private function bootEloquent()
+    {
+        global $wpdb;
 
         $capsule = new Capsule();
         $capsule->addConnection([
@@ -21,13 +36,12 @@ class Application
             'username' => DB_USER,
             'password' => DB_PASSWORD,
             'charset' => DB_CHARSET,
-            //'collation' => DB_COLLATE ?: $wpdb->collate,
+            'collation' => 'utf8_general_ci',//DB_COLLATE ?: $wpdb->collate,
             'prefix' => $wpdb->prefix
         ]);
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
     }
-
 
     public static function getInstance()
     {
@@ -37,4 +51,23 @@ class Application
         return static::$instance;
     }
 
+    public function bootContext($context)
+    {
+        register_activation_hook($context . '/' . $context . '.php', function () use ($context) {
+            @require WP_PLUGIN_DIR . '/' . $context . '/app/lifecycle/activate.php';
+        });
+
+        register_deactivation_hook($context . '/' . $context . '.php', function () use ($context) {
+            @require WP_PLUGIN_DIR . '/' . $context . '/app/lifecycle/deactivate.php';
+        });
+
+        foreach ($this->hooks as $hook => $handler) {
+            $hooks = @include WP_PLUGIN_DIR . '/' . $context . '/app/hooks/' . $hook . '.php';
+            if (!empty($hooks)) {
+                foreach ($hooks as $h) {
+                    $handler::create($h, $context);
+                }
+            }
+        }
+    }
 }
