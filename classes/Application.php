@@ -54,11 +54,11 @@ class Application
 
     public function bootContext($context)
     {
-        register_activation_hook($context . '/' . $context . '.php', function () use ($context) {
+        register_activation_hook($context . '/functions.php', function () use ($context) {
             @require WP_PLUGIN_DIR . '/' . $context . '/app/lifecycle/activate.php';
         });
 
-        register_deactivation_hook($context . '/' . $context . '.php', function () use ($context) {
+        register_deactivation_hook($context . '/functions.php', function () use ($context) {
             @require WP_PLUGIN_DIR . '/' . $context . '/app/lifecycle/deactivate.php';
         });
 
