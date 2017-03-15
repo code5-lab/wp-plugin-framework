@@ -1,5 +1,6 @@
 {
   "name": "code5-lab/wp-plugin-framework",
+  "type": "library",
   "authors": [
     {
       "name": "Code Five",
