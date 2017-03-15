@@ -1,8 +1,8 @@
-<?php namespace Com\Componto\Framework\Models;
+<?php namespace Com\CodeFive\Framework\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Com\Componto\Framework\Models\SoftDeletes\SoftDeletes;
+use Com\CodeFive\Framework\Models\SoftDeletes\SoftDeletes;
 
 /**
  * @see http://getherbert.com

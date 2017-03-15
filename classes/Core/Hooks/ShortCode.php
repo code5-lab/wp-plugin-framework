@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eduardo
- * Date: 06/03/2017
- * Time: 11:15
- */
 
-namespace Com\Componto\Framework\Core\Hooks;
+
+namespace Com\CodeFive\Framework\Core\Hooks;
 
 class ShortCode implements HookContract
 {

@@ -1,4 +1,4 @@
-<?php namespace Com\Componto\Framework\Models;
+<?php namespace Com\CodeFive\Framework\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

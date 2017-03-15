@@ -6,7 +6,7 @@
  * Time: 11:59
  */
 
-namespace Com\Componto\Framework\Core\Controllers;
+namespace Com\CodeFive\Framework\Core\Controllers;
 
 
 class BaseController

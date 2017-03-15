@@ -1,4 +1,4 @@
-<?php namespace Com\Componto\Framework\Models\SoftDeletes;
+<?php namespace Com\CodeFive\Framework\Models\SoftDeletes;
 
 use Illuminate\Database\Eloquent\SoftDeletes as BaseSoftDeletes;
 

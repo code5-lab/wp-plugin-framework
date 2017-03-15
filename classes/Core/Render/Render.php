@@ -1,6 +1,6 @@
 <?php
 
-namespace Com\Componto\Framework\Core\Render;
+namespace Com\CodeFive\Framework\Core\Render;
 
 
 class Render

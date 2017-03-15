@@ -6,7 +6,7 @@
  * Time: 11:48
  */
 
-namespace Com\Componto\Framework\Core\Hooks;
+namespace Com\CodeFive\Framework\Core\Hooks;
 
 
 interface HookContract

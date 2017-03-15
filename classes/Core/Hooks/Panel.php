@@ -6,7 +6,7 @@
  * Time: 15:56
  */
 
-namespace Com\Componto\Framework\Core\Hooks;
+namespace Com\CodeFive\Framework\Core\Hooks;
 
 
 use InvalidArgumentException;

@@ -6,7 +6,7 @@
  * Time: 12:07
  */
 
-namespace Com\Componto\Framework\Core\Hooks;
+namespace Com\CodeFive\Framework\Core\Hooks;
 
 
 class Enqueue

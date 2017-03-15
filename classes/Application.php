@@ -1,9 +1,10 @@
 <?php
-namespace Com\Componto\Framework;
+namespace Com\CodeFive\Framework;
 
-use Com\Componto\Framework\Core\Hooks\Enqueue;
-use Com\Componto\Framework\Core\Hooks\Panel;
-use Com\Componto\Framework\Core\Hooks\ShortCode;
+use Com\CodeFive\Framework\Core\Hooks\ApiEndpoint;
+use Com\CodeFive\Framework\Core\Hooks\Enqueue;
+use Com\CodeFive\Framework\Core\Hooks\Panel;
+use Com\CodeFive\Framework\Core\Hooks\ShortCode;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 
@@ -18,7 +19,7 @@ class Application
             'short_code' => new ShortCode(),
             'enqueue' => new Enqueue(),
             'panel' => new Panel(),
-            //'short_codes'
+            'api_endpoint' => new ApiEndpoint()
         ];
         static::$instance = $this;
         $this->bootEloquent();
