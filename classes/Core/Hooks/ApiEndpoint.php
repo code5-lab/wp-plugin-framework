@@ -37,7 +37,7 @@ class ApiEndpoint implements HookContract
                 if (!empty($hook['rewrite']['match_names'])) {
                     $i = 1;
                     foreach ($hook['rewrite']['match_names'] as $match_name) {
-                        $matches .= '&' . $match_name . "=\$matches[{$i}]";
+                        $matches .= '&' . $match_name . "=\${$i}";
                         $i++;
                     }
                 }
