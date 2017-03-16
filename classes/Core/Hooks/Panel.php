@@ -303,7 +303,7 @@ class Panel implements HookContract
         }
 
         try {
-            (new $callable[0]($context))->$callable[1]();
+            (new $callable[0]($context))->{$callable[1]}();
         } catch (\Exception $e) {
             var_dump($e);
         }
