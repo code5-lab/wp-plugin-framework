@@ -1,7 +1,7 @@
 {
   "name": "code5-lab/wp-plugin-framework",
   "type": "library",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "authors": [
     {
       "name": "Code Five",
@@ -15,6 +15,6 @@
   },
   "require": {
     "php": ">=5.6.4",
-    "illuminate/database": "5.3"
+    "illuminate/database": "5.2"
   }
 }
