@@ -17,18 +17,7 @@ class ShortCode implements HookContract
                 if ($content != null) {
                     $attributes['content'] = $content;
                 }
-                $methodReflection = new \ReflectionMethod($class, $method);
-                $methodParams = [];
-
-                foreach ($methodReflection->getParameters() as $parameter) {
-                    if ($attributes[snake_case($parameter->name)] != null) {
-                        $methodParams[] = $attributes[snake_case($parameter->name)];
-                    } else {
-                        $methodParams[] = $attributes[strtolower($parameter->name)];
-                    }
-                }
-
-                return (new $class($ctx))->$method(...$methodParams);
+                return (new $class($ctx))->$method($attributes);
             } catch (\Exception $e) {
                 var_dump($e);
             }
