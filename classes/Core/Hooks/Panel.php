@@ -79,7 +79,11 @@ class Panel implements HookContract
      */
     public function bootEarly()
     {
-        if (($slug = $_GET['page'] ?: null) === null) {
+        $slug = null;
+        if (!empty($_GET['page'])) {
+            $slug = $_GET['page'];
+        }
+        if ($slug === null) {
             return;
         }
 
